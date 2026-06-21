@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leadership e-Portfolio | Low Zheng Xuan</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream:   #FAF7F2;
+    --warm:    #F3EDE3;
+    --sage:    #5A7A5C;
+    --sage-lt: #8AAD8C;
+    --sage-dk: #3D5E3F;
+    --terr:    #C17F5A;
+    --ink:     #2C2C2C;
+    --muted:   #7A7268;
+    --border:  #DDD5C8;
+    --white:   #FFFFFF;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: var(--white);
+    border-bottom: 2px solid var(--sage);
+    padding: 0 2rem;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 60px;
+    box-shadow: 0 2px 12px rgba(90,122,92,.10);
+  }
+  .nav-brand {
+    font-family: 'Lora', serif;
+    font-size: 1.05rem; color: var(--sage-dk);
+    text-decoration: none; font-weight: 600;
+  }
+  .nav-links { display: flex; gap: 1.6rem; list-style: none; }
+  .nav-links a {
+    font-size: .85rem; font-weight: 500;
+    color: var(--muted); text-decoration: none;
+    letter-spacing: .03em; text-transform: uppercase;
+    transition: color .2s;
+  }
+  .nav-links a:hover { color: var(--sage); }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(135deg, var(--sage-dk) 0%, var(--sage) 60%, var(--sage-lt) 100%);
+    color: var(--white);
+    padding: 6rem 2rem 5rem;
+    text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .hero-tag {
+    display: inline-block;
+    background: rgba(255,255,255,.18);
+    border: 1px solid rgba(255,255,255,.35);
+    border-radius: 20px; padding: .3rem 1rem;
+    font-size: .78rem; letter-spacing: .08em; text-transform: uppercase;
+    margin-bottom: 1.4rem;
+  }
+  .hero h1 {
+    font-family: 'Lora', serif;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 600; line-height: 1.2;
+    margin-bottom: .8rem;
+  }
+  .hero p {
+    font-size: 1.05rem; opacity: .85;
+    max-width: 520px; margin: 0 auto 2.5rem;
+  }
+  .hero-meta {
+    display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;
+    font-size: .85rem; opacity: .75;
+  }
+  .hero-meta span::before { content: '· '; opacity: .5; }
+  .hero-meta span:first-child::before { content: ''; }
+
+  /* ── SECTION ── */
+  section { padding: 5rem 2rem; }
+  section:nth-child(even) { background: var(--warm); }
+
+  .container { max-width: 860px; margin: 0 auto; }
+
+  .section-eyebrow {
+    font-size: .72rem; letter-spacing: .14em;
+    text-transform: uppercase; color: var(--sage);
+    font-weight: 600; margin-bottom: .6rem;
+  }
+  .section-title {
+    font-family: 'Lora', serif;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    color: var(--sage-dk); margin-bottom: 1.5rem;
+    padding-bottom: .7rem;
+    border-bottom: 2px solid var(--border);
+  }
+
+  p + p { margin-top: 1rem; }
+
+  /* ── TABLE OF CONTENTS ── */
+  .toc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1rem; margin-top: 1.5rem;
+  }
+  .toc-card {
+    background: var(--white);
+    border: 1.5px solid var(--border);
+    border-radius: 10px; padding: 1.2rem 1rem;
+    text-decoration: none; color: var(--ink);
+    transition: border-color .2s, transform .2s, box-shadow .2s;
+    display: flex; align-items: flex-start; gap: .7rem;
+  }
+  .toc-card:hover {
+    border-color: var(--sage);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(90,122,92,.12);
+  }
+  .toc-num {
+    font-family: 'Lora', serif;
+    font-size: 1.4rem; color: var(--sage-lt);
+    font-weight: 600; line-height: 1;
+    flex-shrink: 0;
+  }
+  .toc-label { font-size: .88rem; font-weight: 500; line-height: 1.35; }
+
+  /* ── PROFILE ── */
+  .profile-wrap {
+    display: flex; gap: 2.5rem; align-items: flex-start; flex-wrap: wrap;
+  }
+  .profile-photo-box {
+    flex-shrink: 0;
+    width: 150px; height: 150px;
+    border-radius: 50%;
+    background: var(--warm);
+    border: 3px solid var(--sage-lt);
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+    font-size: .78rem; color: var(--muted); text-align: center;
+    padding: .5rem;
+  }
+  .profile-photo-box svg { width: 64px; height: 64px; opacity: .4; }
+  .profile-info { flex: 1; min-width: 220px; }
+  .profile-name {
+    font-family: 'Lora', serif;
+    font-size: 1.5rem; color: var(--sage-dk);
+    margin-bottom: .3rem;
+  }
+  .profile-role {
+    font-size: .9rem; color: var(--terr);
+    font-weight: 600; margin-bottom: 1rem;
+    letter-spacing: .02em;
+  }
+  .profile-tags { display: flex; flex-wrap: wrap; gap: .5rem; margin: 1rem 0; }
+  .tag {
+    background: var(--sage-lt);
+    color: var(--white); border-radius: 20px;
+    padding: .25rem .85rem; font-size: .78rem; font-weight: 500;
+  }
+  .profile-table { width: 100%; border-collapse: collapse; margin-top: 1rem; font-size: .9rem; }
+  .profile-table td { padding: .45rem .2rem; border-bottom: 1px solid var(--border); }
+  .profile-table td:first-child { color: var(--muted); width: 38%; }
+
+  /* ── REFLECTION ── */
+  .reflect-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 1.5rem; margin: 1.5rem 0;
+  }
+  @media (max-width: 600px) { .reflect-grid { grid-template-columns: 1fr; } }
+  .reflect-card {
+    border-radius: 12px; padding: 1.5rem;
+    border-top: 4px solid;
+  }
+  .reflect-card.before {
+    background: #FFF8F4; border-color: var(--terr);
+  }
+  .reflect-card.after {
+    background: #F0F7F0; border-color: var(--sage);
+  }
+  .reflect-card h3 {
+    font-family: 'Lora', serif;
+    font-size: 1rem; margin-bottom: .8rem;
+  }
+  .reflect-card.before h3 { color: var(--terr); }
+  .reflect-card.after h3 { color: var(--sage-dk); }
+  .reflect-card ul { list-style: none; padding: 0; }
+  .reflect-card ul li { font-size: .9rem; padding: .3rem 0; padding-left: 1.2rem; position: relative; }
+  .reflect-card ul li::before { content: '→'; position: absolute; left: 0; opacity: .5; }
+
+  .reflect-quote {
+    background: var(--sage-dk); color: var(--white);
+    border-radius: 12px; padding: 2rem 2rem 1.5rem;
+    margin-top: 1.5rem;
+    position: relative;
+  }
+  .reflect-quote::before {
+    content: '"';
+    font-family: 'Lora', serif;
+    font-size: 5rem; color: var(--sage-lt);
+    position: absolute; top: -1rem; left: 1.5rem;
+    line-height: 1;
+  }
+  .reflect-quote p { font-style: italic; font-size: 1.05rem; opacity: .9; }
+  .reflect-quote cite { font-size: .8rem; opacity: .6; display: block; margin-top: .8rem; }
+
+  /* ── TRANSFORMATIONAL ── */
+  .tf-def {
+    background: var(--white);
+    border-left: 5px solid var(--sage);
+    border-radius: 0 10px 10px 0;
+    padding: 1.3rem 1.5rem;
+    margin: 1.2rem 0 2rem;
+    font-style: italic; font-size: 1rem;
+    color: var(--ink);
+  }
+  .tf-def cite { display: block; font-style: normal; font-size: .8rem; color: var(--muted); margin-top: .5rem; }
+
+  .subsection-title {
+    font-family: 'Lora', serif;
+    font-size: 1.2rem; color: var(--sage-dk);
+    margin: 2.5rem 0 1rem;
+    padding-bottom: .4rem;
+    border-bottom: 1.5px dashed var(--border);
+  }
+
+  .model-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(240px,1fr));
+    gap: 1rem; margin-top: 1rem;
+  }
+  .model-card {
+    background: var(--white);
+    border: 1.5px solid var(--border);
+    border-radius: 10px; padding: 1.2rem;
+  }
+  .model-card h4 {
+    font-size: .9rem; font-weight: 600;
+    color: var(--sage-dk); margin-bottom: .5rem;
+  }
+  .model-card p { font-size: .85rem; color: var(--muted); }
+
+  .four-i {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(185px,1fr));
+    gap: 1rem; margin-top: 1rem;
+  }
+  .four-i-card {
+    background: var(--sage-dk); color: var(--white);
+    border-radius: 10px; padding: 1.2rem;
+    text-align: center;
+  }
+  .four-i-letter {
+    font-family: 'Lora', serif;
+    font-size: 2rem; color: var(--sage-lt);
+    font-weight: 600; display: block;
+  }
+  .four-i-card h4 { font-size: .9rem; margin: .3rem 0 .4rem; }
+  .four-i-card p { font-size: .78rem; opacity: .8; }
+
+  .sw-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-top: 1rem; }
+  @media (max-width: 560px) { .sw-grid { grid-template-columns: 1fr; } }
+  .sw-card { border-radius: 10px; padding: 1.3rem; }
+  .sw-card.strength { background: #EDF7ED; border: 1.5px solid #9DD09E; }
+  .sw-card.weakness { background: #FDF3EE; border: 1.5px solid #E8B99A; }
+  .sw-card h4 { font-size: .9rem; font-weight: 600; margin-bottom: .7rem; }
+  .sw-card.strength h4 { color: var(--sage-dk); }
+  .sw-card.weakness h4 { color: #A0522D; }
+  .sw-card ul { list-style: none; padding: 0; }
+  .sw-card ul li { font-size: .88rem; padding: .25rem 0 .25rem 1.2rem; position: relative; }
+  .sw-card.strength ul li::before { content: '✓'; position: absolute; left: 0; color: var(--sage); }
+  .sw-card.weakness ul li::before { content: '✗'; position: absolute; left: 0; color: var(--terr); }
+
+  .leader-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(200px,1fr));
+    gap: 1.2rem; margin-top: 1rem;
+  }
+  .leader-card {
+    background: var(--white);
+    border: 1.5px solid var(--border);
+    border-radius: 12px; padding: 1.3rem;
+    transition: transform .2s, box-shadow .2s;
+  }
+  .leader-card:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,.08); }
+  .leader-icon {
+    width: 44px; height: 44px; border-radius: 50%;
+    background: var(--sage-lt);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem; margin-bottom: .8rem;
+  }
+  .leader-card h4 { font-size: .95rem; font-weight: 600; margin-bottom: .3rem; color: var(--sage-dk); }
+  .leader-card .leader-role { font-size: .78rem; color: var(--terr); font-weight: 500; margin-bottom: .5rem; }
+  .leader-card p { font-size: .82rem; color: var(--muted); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--sage-dk); color: rgba(255,255,255,.7);
+    text-align: center; padding: 2.5rem 1rem;
+    font-size: .85rem;
+  }
+  footer strong { color: var(--white); }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-brand" href="#">Low Zheng Xuan | e-Portfolio</a>
+  <ul class="nav-links">
+    <li><a href="#contents">Contents</a></li>
+    <li><a href="#profile">Profile</a></li>
+    <li><a href="#reflection">Reflection</a></li>
+    <li><a href="#transformational">Leadership</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-tag">UHPS 6013 · Dynamics of Leadership</div>
+  <h1>A Journey Through<br>Leadership</h1>
+  <p>An e-portfolio that tracks how I grew as an educator-leader during the Dynamics of Leadership course.</p>
+  <div class="hero-meta">
+    <span>Low Zheng Xuan</span>
+    <span>MPT254024</span>
+    <span>MEd (Educational Technology)</span>
+    <span>Assignment 4</span>
+  </div>
+</div>
+
+<!-- 1. TABLE OF CONTENTS -->
+<section id="contents">
+  <div class="container">
+    <div class="section-eyebrow">Section 1</div>
+    <h2 class="section-title">Table of Contents</h2>
+    <p>This portfolio is organised into four main sections. Each builds on the one before to show my leadership learning journey.</p>
+    <div class="toc-grid">
+      <a href="#contents" class="toc-card">
+        <span class="toc-num">01</span>
+        <span class="toc-label">Table of Contents</span>
+      </a>
+      <a href="#profile" class="toc-card">
+        <span class="toc-num">02</span>
+        <span class="toc-label">Student Profile</span>
+      </a>
+      <a href="#reflection" class="toc-card">
+        <span class="toc-num">03</span>
+        <span class="toc-label">Overall Reflection<br><small style="font-weight:400;color:var(--muted)">Before &amp; After</small></span>
+      </a>
+      <a href="#transformational" class="toc-card">
+        <span class="toc-num">04</span>
+        <span class="toc-label">Transformational Leadership<br><small style="font-weight:400;color:var(--muted)">Definition · Models · Strengths &amp; Weaknesses · World Leaders</small></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- 2. STUDENT PROFILE -->
+<section id="profile">
+  <div class="container">
+    <div class="section-eyebrow">Section 2</div>
+    <h2 class="section-title">Student Profile</h2>
+    <div class="profile-wrap">
+
+  <div class="profile-photo-box">
+    <div style="text-align:center">
+      <img src="./images/profile.jpg" alt="Profile Photo" width="200" height="200">
+    </div>
+  </div>
+
+      <div class="profile-info">
+        <div class="profile-name">Low Zheng Xuan</div>
+        <div class="profile-role">Coding &amp; Robotics Teacher · MEd Student</div>
+        <div class="profile-tags">
+          <span class="tag">Scratch</span>
+          <span class="tag">Python</span>
+          <span class="tag">LEGO Spike</span>
+          <span class="tag">EdTech</span>
+          <span class="tag">Primary Education</span>
+        </div>
+        <table class="profile-table">
+          <tr><td>Student ID</td><td>MPT254024</td></tr>
+          <tr><td>Programme</td><td>Master in Education (Educational Technology)</td></tr>
+          <tr><td>Course</td><td>UHPS 6013 - Dynamics of Leadership</td></tr>
+          <tr><td>Institution</td><td>Faculty of Educational Sciences and Technology</td></tr>
+          <tr><td>Current Role</td><td>Coding &amp; Robotics Teacher, Private Education Centre</td></tr>
+          <tr><td>Students Taught</td><td>Primary school children, ages 7-12</td></tr>
+        </table>
+        <p style="margin-top:1rem;font-size:.9rem;color:var(--muted)">I teach Scratch, Python, LEGO Spike Essential, and LEGO Spike Prime to young learners in a private education setting. I care about making technology education engaging, inclusive, and meaningful for every child. I am also exploring how Educational Technology can support better leadership and learning design in the classroom.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- 3. OVERALL REFLECTION -->
+<section id="reflection">
+  <div class="container">
+    <div class="section-eyebrow">Section 3</div>
+    <h2 class="section-title">Overall Reflection</h2>
+    <p>Before this course, I thought I knew what leadership was. After UHPS 6013, I see it differently in three ways.</p>
+
+    <div class="reflect-grid">
+      <div class="reflect-card before">
+        <h3>📌 Before This Course</h3>
+        <ul>
+          <li>Leadership felt like something reserved for managers and people in formal authority</li>
+          <li>I thought leadership ability was mostly innate, that you either had it or you did not</li>
+          <li>I did not see myself as a leader. I saw myself as "just a teacher"</li>
+          <li>I had no language or framework for understanding why some teaching approaches worked and others did not</li>
+          <li>I relied on instinct rather than intentional strategy when motivating students</li>
+        </ul>
+      </div>
+      <div class="reflect-card after">
+        <h3>🌱 After This Course</h3>
+        <ul>
+          <li>I now understand that teachers are leaders, and every lesson is an act of influence and change</li>
+          <li>Leadership is a learnable skill, not a fixed trait</li>
+          <li>I can connect theory to practice: referent power, transformational motivation, authentic leadership</li>
+          <li>I have concrete strategies for motivating disengaged students through individualised approaches</li>
+          <li>I see my EdTech skills and leadership skills as deeply connected, not separate</li>
+        </ul>
+      </div>
+    </div>
+
+    <p>The most meaningful shift came through a real classroom experience. One of my most challenging students, always distracted and disengaged, became my most motivated learner after I redesigned his LEGO Spike project around the video game he loved. That single experience showed me what this course was about: leadership is relational, situational, and built on genuine understanding of the people you lead.</p>
+
+    <p>I entered this course thinking leadership was about authority. I leave it understanding that leadership is about <em>influence</em>, and that influence at its best begins with listening.</p>
+
+    <div class="reflect-quote">
+      <p>The biggest takeaway from this course is that I've always been a leader in the classroom. I just lacked the skills to express myself effectively before. Now I understand.</p>
+      <cite>- Low Zheng Xuan, Personal Reflection, 2026</cite>
+    </div>
+  </div>
+</section>
+
+<!-- 4. TRANSFORMATIONAL LEADERSHIP -->
+<section id="transformational">
+  <div class="container">
+    <div class="section-eyebrow">Section 4</div>
+    <h2 class="section-title">Transformational Leadership</h2>
+
+    <!-- Definition -->
+    <h3 class="subsection-title">Definition</h3>
+    <p>Transformational leadership is a well-studied leadership theory used in both organisational and educational settings. It describes a style that goes beyond transactional exchange, beyond simply rewarding effort or managing performance. The goal is to raise the motivation and aspirations of the people being led.</p>
+
+    <div class="tf-def">
+      "Transformational leadership occurs when leaders broaden and elevate the interests of their employees, when they generate awareness and acceptance of the purposes and mission of the group, and when they stir their employees to look beyond their own self-interest for the good of the group."
+      <cite>- Bass &amp; Avolio (1994, p. 112)</cite>
+    </div>
+
+    <p>Burns (1978), who first introduced the concept, distinguished transformational leaders from transactional ones. He argued that transformational leaders seek to raise followers to higher levels of motivation and morality, rather than just exchanging reward for effort. The leader and the follower both grow from the interaction.</p>
+
+    <p>In an educational context, transformational leadership means inspiring students and colleagues not just to complete tasks, but to care about why those tasks matter. For me, as a Coding and Robotics teacher, it means helping young learners discover that they are capable and that what they build matters.</p>
+
+    <!-- Models & Dimensions -->
+    <h3 class="subsection-title">Transformational Models &amp; Dimensions</h3>
+    <p>Several models describe how transformational leadership works in practice. The best known is Bass and Avolio's (1994) <strong>Full Range Leadership Model</strong>, which places transformational leadership at the top of leadership effectiveness and breaks it into four core dimensions, called the "Four I's".</p>
+
+    <div class="four-i">
+      <div class="four-i-card">
+        <span class="four-i-letter">I</span>
+        <h4>Idealised Influence</h4>
+        <p>The leader acts as a role model, earning trust and respect through their own values and conduct.</p>
+      </div>
+      <div class="four-i-card">
+        <span class="four-i-letter">I</span>
+        <h4>Inspirational Motivation</h4>
+        <p>The leader communicates a compelling vision that energises followers and gives meaning to the work.</p>
+      </div>
+      <div class="four-i-card">
+        <span class="four-i-letter">I</span>
+        <h4>Intellectual Stimulation</h4>
+        <p>The leader encourages creativity, challenges assumptions, and promotes independent thinking.</p>
+      </div>
+      <div class="four-i-card">
+        <span class="four-i-letter">I</span>
+        <h4>Individualised Consideration</h4>
+        <p>The leader attends to each person's unique needs, acting as mentor and coach to support individual growth.</p>
+      </div>
+    </div>
+
+    <p style="margin-top:1.5rem">Beyond the Four I's, other relevant models include:</p>
+    <div class="model-grid">
+      <div class="model-card">
+        <h4>Burns' Transforming Leadership (1978)</h4>
+        <p>The foundational model. It emphasises the moral dimension of leadership, with leaders and followers raising each other to higher ethical standards.</p>
+      </div>
+      <div class="model-card">
+        <h4>George's Authentic Leadership (2003)</h4>
+        <p>Extends transformational thinking by grounding leadership in self-awareness, values, and relational transparency.</p>
+      </div>
+      <div class="model-card">
+        <h4>Leithwood's Educational TL Model (1994)</h4>
+        <p>Applies transformational leadership specifically to school settings, focusing on how leaders build school culture and support teacher development.</p>
+      </div>
+      <div class="model-card">
+        <h4>Full Range Leadership Model (Bass &amp; Avolio, 1994)</h4>
+        <p>Places transformational leadership at the top of a spectrum that includes transactional and laissez-faire styles. The model argues it produces the highest outcomes.</p>
+      </div>
+    </div>
+
+    <!-- Strengths & Weaknesses -->
+    <h3 class="subsection-title">Strengths &amp; Weaknesses</h3>
+    <div class="sw-grid">
+      <div class="sw-card strength">
+        <h4>✦ Strengths</h4>
+        <ul>
+          <li>Elevates intrinsic motivation. Followers act from genuine purpose, not just reward.</li>
+          <li>Builds long-term commitment and loyalty to shared goals</li>
+          <li>Encourages creativity, innovation, and independent thinking</li>
+          <li>Highly effective in complex, changing environments (like 21st-century classrooms)</li>
+          <li>Develops followers into future leaders through individualised consideration</li>
+          <li>Linked to higher performance and wellbeing outcomes (Bass &amp; Riggio, 2006)</li>
+          <li>Morally grounded. Emphasises ethical conduct and collective good.</li>
+        </ul>
+      </div>
+      <div class="sw-card weakness">
+        <h4>✦ Weaknesses</h4>
+        <ul>
+          <li>Can be difficult to sustain. Requires consistent emotional investment from the leader.</li>
+          <li>Risk of over-dependence on the leader's vision or personality</li>
+          <li>Charismatic elements can become manipulative if values are not genuinely ethical</li>
+          <li>Less effective in highly structured or crisis situations requiring clear directive leadership</li>
+          <li>Hard to measure. Outcomes are often long-term and difficult to quantify.</li>
+          <li>Assumes followers are ready for empowerment. May not suit all developmental levels.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- World Leaders -->
+    <h3 class="subsection-title">World Transformational Leaders</h3>
+    <p>Many influential figures have shown transformational leadership. The ones below are often cited as examples.</p>
+
+    <div class="leader-grid">
+      <div class="leader-card">
+        <div class="leader-icon">🕊</div>
+        <h4>Nelson Mandela</h4>
+        <div class="leader-role">South Africa · Political Leader</div>
+        <p>Mandela showed idealised influence through moral courage. He inspired a nation to move beyond division toward reconciliation, putting collective values over personal gain.</p>
+      </div>
+      <div class="leader-card">
+        <div class="leader-icon">🎤</div>
+        <h4>Martin Luther King Jr.</h4>
+        <div class="leader-role">USA · Civil Rights Leader</div>
+        <p>King used inspirational motivation expressed through his vision of equality. He mobilised millions and changed the moral consciousness of a generation (Burns, 1978).</p>
+      </div>
+      <div class="leader-card">
+        <div class="leader-icon">🍎</div>
+        <h4>Steve Jobs</h4>
+        <div class="leader-role">USA · Technology &amp; Innovation</div>
+        <p>Jobs showed intellectual stimulation and vision at Apple. He pushed teams to think differently and created products that changed how people interact with technology.</p>
+      </div>
+      <div class="leader-card">
+        <div class="leader-icon">📚</div>
+        <h4>Malala Yousafzai</h4>
+        <div class="leader-role">Pakistan · Education Advocate</div>
+        <p>Malala leads through authentic values and inspirational motivation. She advocates for girls' education globally and has shifted public awareness about access and equality.</p>
+      </div>
+      <div class="leader-card">
+        <div class="leader-icon">🌏</div>
+        <h4>Jacinda Ardern</h4>
+        <div class="leader-role">New Zealand · Political Leader</div>
+        <p>Ardern modelled empathetic, values-driven transformational leadership. She showed that compassion and decisiveness are not opposites but complements (Northouse, 2018).</p>
+      </div>
+      <div class="leader-card">
+        <div class="leader-icon">🤝</div>
+        <h4>Oprah Winfrey</h4>
+        <div class="leader-role">USA · Media &amp; Philanthropy</div>
+        <p>Winfrey built a platform centred on individualised consideration. She connected deeply with her audience by sharing vulnerability and highlighting stories of personal change.</p>
+      </div>
+    </div>
+
+    <p style="margin-top:2rem">What these leaders share is not personality or circumstance, but a commitment to lifting up the people around them. As Bass and Riggio (2006) note, transformational leaders do not simply achieve goals. They change how their followers think about what is possible.</p>
+
+    <!-- References -->
+    <h3 class="subsection-title">References</h3>
+    <ul style="list-style:none;padding:0;font-size:.88rem;color:var(--muted);line-height:2">
+      <li>Bass, B. M., &amp; Avolio, B. J. (1994). <em>Improving organizational effectiveness through transformational leadership.</em> Sage.</li>
+      <li>Bass, B. M., &amp; Riggio, R. E. (2006). <em>Transformational leadership</em> (2nd ed.). Lawrence Erlbaum Associates.</li>
+      <li>Burns, J. M. (1978). <em>Leadership.</em> Harper &amp; Row.</li>
+      <li>George, B. (2003). <em>Authentic leadership: Rediscovering the secrets to creating lasting value.</em> Jossey-Bass.</li>
+      <li>Lussier, R. N., &amp; Achua, C. F. (2016). <em>Leadership: Theory, application, &amp; skill development</em> (6th ed.). Cengage Learning.</li>
+      <li>Northouse, P. G. (2018). <em>Leadership: Theory and practice</em> (8th ed.). Sage.</li>
+    </ul>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <strong>Low Zheng Xuan</strong> · MPT254024 · UHPS 6013 Dynamics of Leadership<br>
+  <span style="margin-top:.4rem;display:block">Master in Education (Educational Technology) · Assignment 4: e-Portfolio</span>
+</footer>
+
+</body>
+</html>
